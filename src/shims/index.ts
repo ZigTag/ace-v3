@@ -5,6 +5,7 @@ import { Avionics, BaseInstrument, GameState, LaunchFlowEvent, registerInstrumen
 import { aceFetch } from './fetch';
 import { workspaceStore } from '../redux/workspace';
 import { addEvent } from '../redux/workspace/interactionEventsSlice';
+import { GetDataStorage } from './DataStorage';
 
 export function installShims(): void {
     // JS built-ins shims
@@ -24,6 +25,7 @@ export function installShims(): void {
     window.GameState = GameState;
     window.Avionics = Avionics;
     window.LaunchFlowEvent = LaunchFlowEvent;
+    window.GetDataStorage = GetDataStorage;
 
     window.registerInteractionEventRegister = (document: Document) => {
         const rootElement = document.getElementById('ROOT_ELEMENT');

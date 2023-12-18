@@ -69,6 +69,7 @@ const InstrumentFrame: React.FC<InstrumentFrameProps> = memo(forwardRef(
                         <body style={{ overflow: 'hidden', margin: 0 }}>
                             <div id="ROOT_ELEMENT">
                                 <div id="MSFS_REACT_MOUNT" />
+                                <div id="EFBv4_CONTENT" />
                             </div>
                             <script>
                                 window.parent.registerInteractionEventRegister(window.document);

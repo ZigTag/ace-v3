@@ -3,6 +3,7 @@ import { SimVar, simvar } from './shims/SimVar';
 import { Coherent } from './shims/Coherent';
 import { GetStoredData, SetStoredData } from './shims/StoredData';
 import { Avionics, BaseInstrument, GameState, LaunchFlowEvent, registerInstrument, RunwayDesignator } from './shims/MsfsSdk';
+import { GetDataStorage } from './shims/DataStorage';
 
 type CustomEventMap = {
     [key in 'triggerInteractionEvent']: CustomEvent<string>;
@@ -24,6 +25,7 @@ declare global {
         GameState: typeof GameState;
         Avionics: typeof Avionics;
         LaunchFlowEvent: typeof LaunchFlowEvent;
+        GetDataStorage: typeof GetDataStorage;
 
         registerInteractionEventRegister: (document: Document) => void;
 
