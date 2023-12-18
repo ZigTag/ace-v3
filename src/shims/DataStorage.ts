@@ -21,8 +21,6 @@ export function GetDataStorage(): DataStorage {
         searchData(key: string) {
             const keys = Object.keys(localStorage).filter(((thisKey) => thisKey.includes(key)));
 
-            console.log(keys);
-
             if (keys.length === 0) {
                 return null;
             }
