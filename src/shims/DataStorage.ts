@@ -21,15 +21,21 @@ export function GetDataStorage(): DataStorage {
         searchData(key: string) {
             const keys = Object.keys(localStorage).filter(((thisKey) => thisKey.includes(key)));
 
+            console.log(keys);
+
             if (keys.length === 0) {
                 return null;
             }
 
             const dataList: DataStorageSearchData[] = [];
 
-            for (const i in keys) {
-                dataList.push({ key: i, data: this.getData(i) });
-            }
+            keys.forEach((newKey) => {
+                const item = localStorage.getItem(newKey);
+
+                const data: string = item || '';
+
+                dataList.push({ key: newKey, data });
+            });
 
             return dataList;
         },
