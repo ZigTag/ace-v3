@@ -32,7 +32,7 @@ const simVarSlice = createSlice({
         vars: [] as SimVar[],
     },
     reducers: {
-        newSimVar(state, action: PayloadAction<{ name: string, unit: string, value: string | number }>) {
+        newSimVar(state, action: PayloadAction<{ name: string, unit: string, value: string | number | boolean }>) {
             const { name, unit, value } = action.payload;
 
             const parsedName = parseSimVarName(name);
@@ -49,7 +49,7 @@ const simVarSlice = createSlice({
                 }) - 1;
             }
         },
-        setSimVar(state, action: PayloadAction<{ id: number, value: string | number }>) {
+        setSimVar(state, action: PayloadAction<{ id: number, value: string | number | boolean }>) {
             const { id, value } = action.payload;
 
             if (state.vars[id] === undefined) {

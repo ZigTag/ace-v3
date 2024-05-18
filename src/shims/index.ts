@@ -40,4 +40,6 @@ export function installShims(): void {
             _addEventListener.apply(rootElement, [type, listener]);
         };
     };
+
+    window.RegisterViewListener = () => {};
 }

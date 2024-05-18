@@ -22,6 +22,7 @@ enum Control {
 enum SimVarValue {
     String(String),
     Number(f64),
+    Boolean(bool),
 }
 
 impl<'de> Deserialize<'de> for SimVarValue {
@@ -72,6 +73,12 @@ impl<'de> Deserialize<'de> for SimVarValue {
             {
                 Ok(SimVarValue::String(str.to_string()))
             }
+            fn visit_bool<E>(self, boolean: bool) -> Result<Self::Value, E>
+                where
+                    E: de::Error,
+            {
+                Ok(SimVarValue::Boolean(boolean))
+            }
         }
 
         deserializer.deserialize_any(ValueVisitor)
@@ -86,6 +93,7 @@ impl Serialize for SimVarValue {
         match self {
             SimVarValue::String(str) => serializer.serialize_str(str),
             SimVarValue::Number(num) => serializer.serialize_f64(*num),
+            SimVarValue::Boolean(boolean) => serializer.serialize_bool(*boolean),
         }
     }
 }

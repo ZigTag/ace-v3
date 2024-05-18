@@ -26,7 +26,7 @@ export namespace SimVar {
         return workspaceStore.getState().simVars.vars[id].value;
     }
 
-    export function SetSimVarValue(name: string, unit: string, value: string | number): any {
+    export async function SetSimVarValue(name: string, unit: string, value: string | number): Promise<any> {
         const id = GetRegisteredId(name, unit);
         workspaceStore.dispatch(setSimVar({ id, value }));
         return value;
@@ -61,33 +61,33 @@ export namespace simvar {
         return getValueReg(registeredId);
     }
 
-    export function setValueReg(registeredId: number, value: any) {
+    export async function setValueReg(registeredId: number, value: any) {
         workspaceStore.dispatch(setSimVar({ id: registeredId, value }));
         return value;
     }
 
-    export function setValueReg_String(registeredId: number, value: any) {
+    export async function setValueReg_String(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
-    export function setValueReg_Bool(registeredId: number, value: any) {
+    export async function setValueReg_Bool(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
-    export function setValueReg_Number(registeredId: number, value: any) {
+    export async function setValueReg_Number(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
-    export function setValue_LatLongAlt(registeredId: number, value: any) {
+    export async function setValue_LatLongAlt(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
-    export function setValue_LatLongAltPBH(registeredId: number, value: any) {
+    export async function setValue_LatLongAltPBH(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
-    export function setValue_PBH(registeredId: number, value: any) {
+    export async function setValue_PBH(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
-    export function setValue_PID_STRUCT(registeredId: number, value: any) {
+    export async function setValue_PID_STRUCT(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
-    export function setValue_XYZ(registeredId: number, value: any) {
+    export async function setValue_XYZ(registeredId: number, value: any) {
         return setValueReg(registeredId, value);
     }
 }
